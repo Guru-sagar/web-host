@@ -1,6 +1,10 @@
 #!/bin/bash
-echo "Deploying app"
-cd /home/ubuntu/app
-unzip -o app.zip -d .
-rm -f app.zip
-echo "Deployment completed!"
+
+echo "Running deploy script..." >> /var/log/deploy.log
+
+# Set ownership and permissions (optional)
+chown -R www-data:www-data /var/www/html
+chmod -R 755 /var/www/html
+
+# Restart Nginx
+systemctl restart nginx
