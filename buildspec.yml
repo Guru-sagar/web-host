@@ -9,3 +9,7 @@ phases:
       - echo Build started on `date`
       - zip -r app.zip .
       - aws s3 cp app.zip s3://batch-07-05-2025/app.zip
+
+artifacts:
+  files:
+    - app.zip
